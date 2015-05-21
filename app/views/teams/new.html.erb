@@ -1,0 +1,12 @@
+<h1>Create Team</h1>
+
+<div>
+  <%= @team.errors.full_messages %>
+</div>
+
+<%= form_for @team do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.submit class: 'button' %>
+<% end %>
