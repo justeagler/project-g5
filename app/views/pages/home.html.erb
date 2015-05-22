@@ -1,9 +1,5 @@
 <% if signed_in? && current_user.team %>
   <h1><%= current_user.team.name %></h1>
 <% else %>
-  <h1>My Favorite Team</h1>
+  <%= link_to 'Create Team', new_team_path %>
 <% end %>
-
-
-<%= link_to 'Create Team', new_team_path %>
-<div>HOME</div>

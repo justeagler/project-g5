@@ -1,0 +1,6 @@
+<h1><%= @team.name %></h1>
+<li>
+<b> <%= link_to 'Next Tea', {:action => 'show', :id => @team.id+1}%></b>
+<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+
+</li>

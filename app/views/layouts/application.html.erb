@@ -27,7 +27,11 @@
     <div class="container">
       <div class="menu">
         <a href="" class="btn_menu">Home</a>
-        <a href="" class="btn_menu">MyTeam</a>
+        <% if signed_in? %>
+          <%= link_to 'MyTeam', new_team_path , :class => "btn_menu"%>
+        <%else%>
+          <%= link_to 'MyTeam', sign_in_path , :class => "btn_menu"%>
+        <%end%>
         <a href="" class="btn_menu">Teams</a>
       </div>
     </div>
@@ -38,7 +42,7 @@
   </div>
 </div>
 <footer class="footer">
-  <div class="container">Desing by Grupo 5</div>
+  <div class="container">Design by Grupo 5</div>
 </footer>
 </body>
 </html>

@@ -9,11 +9,10 @@
 <div class="body_view">
 
 	<%= form_for @team do |form| %>
-	<div class="row">
-		<%= form.label :name %>
-		<%= form.text_field :name %>
-		<%= form.submit class: 'button' %>
-	</div>
-	
+		<div class="row">
+			<%= form.label :name %>
+			<%= form.text_field :name %>
+			<%= form.submit class: 'button' %>
+		</div>
 	<% end %>
 </div>

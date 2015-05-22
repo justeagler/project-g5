@@ -1,0 +1,10 @@
+<% if @teams.blank? %>
+<p>There are not any teams currently in the system.</p>
+<% else %>
+<p>These are the current teams in our system</p>
+<ul id="teams">
+<% @teams.each do |c| %>
+<li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
