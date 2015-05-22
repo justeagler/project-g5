@@ -1,12 +1,19 @@
-<h1>Create Team</h1>
-
-<div>
-  <%= @team.errors.full_messages %>
+<div class="row">
+	<h1>Create Team</h1>
 </div>
-
-<%= form_for @team do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-
-  <%= form.submit class: 'button' %>
+<% if @team.errors.full_messages!=[] %>
+	<div class="row">
+		<%= @team.errors.full_messages %>
+	</div>
 <% end %>
+<div class="body_view">
+
+	<%= form_for @team do |form| %>
+	<div class="row">
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+		<%= form.submit class: 'button' %>
+	</div>
+	
+	<% end %>
+</div>

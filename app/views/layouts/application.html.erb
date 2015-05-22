@@ -7,14 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if signed_in? %>
-    Signed in as: <%= current_user.email %>
-    <%= button_to 'Sign out', sign_out_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign in', sign_in_path %>
-  <% end %>
-
-  <%= yield %>
-
+  <div class="top_banner">
+    <div class="container">
+      <div class="line_signin">
+        <% if signed_in? %>
+        <%= link_to 'Sign out', sign_out_path, method: :delete , :class => "btn_sign"%>
+        <% else %>
+        <%= link_to 'Sign in', sign_in_path, :class => "btn_sign"%>
+        <% end %>
+        <div class="name_sign">
+          <% if signed_in? %>
+          Hello <%= current_user.email %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="banner">
+    <div class="container">
+      <div class="menu">
+        <a href="" class="btn_menu">Home</a>
+        <a href="" class="btn_menu">MyTeam</a>
+        <a href="" class="btn_menu">Teams</a>
+      </div>
+    </div>
+  </div>
+<div class="views">
+  <div class="container">
+    <%= yield %>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">Desing by Grupo 5</div>
+</footer>
 </body>
 </html>
