@@ -1,0 +1,33 @@
+<% if @teams.blank? %>
+<p>There are not any teams currently in the system.</p>
+<% else %>
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">
+		<h2>Teams</h2>
+	</div>
+
+	<!-- Table -->
+	<table class="table">
+	<thead>
+		<tr>
+			<th>Number</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @teams.each do |c| %>
+		<tr>
+		<th>
+			<%= c.id -%>
+		</th>
+			<th>
+				<%= link_to c.name, {:action => 'show', :id => c.id} -%>
+			</th>
+		</tr>
+			<% end %>
+		</tbody>
+		</table>
+	</div>
+
+	<% end %>

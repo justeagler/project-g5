@@ -3,8 +3,8 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  def list
-      @teams = Team.find(:all)
+  def index
+      @teams = Team.all
   end
 
   def create
@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
-    @subjects = Subject.find(:all)
+    /@subjects = Subject.find(:all)/
   end
 
   private
