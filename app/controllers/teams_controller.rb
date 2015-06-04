@@ -4,9 +4,8 @@ class TeamsController < ApplicationController
   end
 
   def index
-      @teams = Team.all
+    @teams = Team.all
   end
-
   def create
     @team = Team.new team_params
 
@@ -18,7 +17,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-      @team = Team.find(params[:id])
+    @team = Team.find(params[:id])
   end
 
   def edit
@@ -26,30 +25,28 @@ class TeamsController < ApplicationController
     /@subjects = Subject.find(:all)/
   end
 
-  private
-
   def update
     @team = Team.find(params[:id])
-    if @team.update_attributes(params[:team])
-     redirect_to :action => 'show', :id => @team
-   else
-     @subjects = Subject.find(:all)
-     render :action => 'edit'
-   end
- end
+    @team.update(team_params)
+    redirect_to :action => 'show', :id => @team
+    /if @team.update_attributes(params[:team])
+      redirect_to :action => 'show', :id => @team
+    else
+      @subjects = Subject.find(:all)
+      render :action => 'edit'
+    end/
+  end
+  def delete
+    Team.find(params[:id]).destroy
+    /redirect_to :action => 'list'/
+  end
 
-def delete
-  Team.find(params[:id]).destroy
-  /redirect_to :action => 'list'/
-end
+  def show_subjects
+    @subject = Subject.find(params[:id])
+  end
 
-def show_subjects
-      @subject = Subject.find(params[:id])
-   end
-
- def team_params
-  params.require(:team)
-  .permit(:name)
-  .merge(user: current_user)
-end
+  def team_params
+    params.require(:team)
+    .permit(:name)
+  end
 end
