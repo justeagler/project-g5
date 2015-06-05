@@ -7,9 +7,9 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
   def create
-    @player = Player.new player_params
+    @player = Player.create player_params
 
-    if @player.save
+    if @player.persisted?
       redirect_to root_path
     else
       render :new
@@ -37,9 +37,7 @@ class PlayersController < ApplicationController
     redirect_to :action => 'index'
   end
 
-  def show_subjects
-    @subject = Subject.find(params[:id])
-  end
+  private
 
   def player_params
     params.require(:player)

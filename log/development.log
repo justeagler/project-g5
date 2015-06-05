@@ -11059,3 +11059,693 @@ Processing by TeamsController#index as HTML
 Completed 200 OK in 169ms (Views: 167.6ms | ActiveRecord: 0.4ms)
   [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
   [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 19:25:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (20.0ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 1130ms (Views: 977.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 19:26:40 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 223ms (Views: 218.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 19:26:46 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=2):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (27.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (92.3ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 19:26:47 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=2):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (19.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (41.9ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 19:26:49 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 157ms (Views: 155.9ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePlayer (20150605183809)
+  [1m[35m (0.1ms)[0m  begin transaction
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/tiago/project-g5/db/migrate/20150605183809_create_player.rb:9)
+  [1m[36m (21.7ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "position" varchar NOT NULL, "team_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_players_on_team_id" ON "players" ("team_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150605183809"]]
+  [1m[36m (4.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_players_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_players_on_team_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/players" for 127.0.0.1 at 2015-06-05 19:44:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlayersController#index as HTML
+  [1m[35mPlayer Load (0.2ms)[0m  SELECT "players".* FROM "players"
+  Rendered players/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 341ms (Views: 325.9ms | ActiveRecord: 1.1ms)
+  [1m[36mPlayer Load (1.8ms)[0m  [1mSELECT "players".* FROM "players"[0m
+
+
+Started GET "/sign_out" for 127.0.0.1 at 2015-06-05 19:47:18 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/sign_out"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (35.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (17.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (36.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 19:47:21 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (89.9ms)
+Completed 200 OK in 406ms (Views: 403.7ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/sign_out" for 127.0.0.1 at 2015-06-05 19:47:24 +0100
+Processing by Clearance::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"], ["updated_at", "2015-06-05 18:47:24.250290"], ["id", 1]]
+  [1m[35m (5.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 13ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2015-06-05 19:47:24 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/_form.html.erb (14.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/new.html.erb within layouts/application (86.1ms)
+Completed 200 OK in 255ms (Views: 254.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-06-05 19:47:26 +0100
+Processing by Clearance::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"tiago@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "tiago@gmail.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 86ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 19:47:26 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 125ms (Views: 118.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 19:47:28 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (7.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 203ms (Views: 200.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-05 19:47:29 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 168ms (Views: 167.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 19:48:12 +0100
+Processing by PlayersController#new as HTML
+  Rendered players/new.html.erb within layouts/application (3.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 164ms (Views: 153.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:48:25 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"Tiago", "position"=>"Medio"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered players/new.html.erb within layouts/application (5.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 120ms (Views: 115.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:48:37 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"tiago", "position"=>"medio"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  Rendered players/new.html.erb within layouts/application (6.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 126ms (Views: 118.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2015-06-05 19:48:45 +0100
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT "players".* FROM "players"[0m
+  Rendered players/index.html.erb within layouts/application (9.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 138ms (Views: 136.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 19:50:41 +0100
+Processing by PlayersController#new as HTML
+  Rendered players/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 132ms (Views: 130.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:50:48 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"tiago", "position"=>"asdasd"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (3.2ms)[0m  [1mrollback transaction[0m
+  Rendered players/new.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 129ms (Views: 116.5ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:53:25 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"sdfsdf", "position"=>"sdfsdf"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered players/new.html.erb within layouts/application (18.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 175ms (Views: 164.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 19:56:54 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (9.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 140ms (Views: 138.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 19:56:56 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 142ms (Views: 140.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/0" for 127.0.0.1 at 2015-06-05 19:56:57 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=0):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (35.7ms)
+
+
+Started GET "/teams/0" for 127.0.0.1 at 2015-06-05 19:56:57 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=0):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (16.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (38.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (60.0ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 19:56:59 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 142ms (Views: 140.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 19:57:00 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=2):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (44.5ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 19:57:00 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=2):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (39.4ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 19:57:02 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 137ms (Views: 136.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 19:57:04 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=2):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (20.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (37.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 19:57:04 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Team with 'id'=2):
+  app/controllers/teams_controller.rb:20:in `show'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (18.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (36.9ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2015-06-05 19:57:07 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered teams/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 140ms (Views: 137.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 19:57:19 +0100
+Processing by PlayersController#index as HTML
+  [1m[35mPlayer Load (0.4ms)[0m  SELECT "players".* FROM "players"
+  Rendered players/index.html.erb within layouts/application (12.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 123ms (Views: 121.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 19:57:22 +0100
+Processing by PlayersController#new as HTML
+  Rendered players/new.html.erb within layouts/application (6.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 143ms (Views: 142.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:57:29 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"Tiago", "position"=>"med"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered players/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 129ms (Views: 124.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:59:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"eg", "position"=>"eee"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered players/new.html.erb within layouts/application (12.5ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 437ms (Views: 392.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"eg", "position"=>"eee"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered players/new.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 138ms (Views: 120.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/myStyles.self-61be7490dee4a90feb25df9e4723141a505487b222ac0de4612f49e9bf8c8071.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:36 +0100
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 19:59:52 +0100
+Processing by PlayersController#new as HTML
+  Rendered players/new.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 121ms (Views: 119.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/myStyles.self-61be7490dee4a90feb25df9e4723141a505487b222ac0de4612f49e9bf8c8071.css?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-06-05 19:59:53 +0100
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 19:59:55 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"Tiago", "position"=>"med"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered players/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 149ms (Views: 135.5ms | ActiveRecord: 0.6ms)
