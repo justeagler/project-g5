@@ -29,16 +29,12 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @team.update(team_params)
     redirect_to :action => 'show', :id => @team
-    /if @team.update_attributes(params[:team])
-      redirect_to :action => 'show', :id => @team
-    else
-      @subjects = Subject.find(:all)
-      render :action => 'edit'
-    end/
   end
-  def delete
-    Team.find(params[:id]).destroy
-    /redirect_to :action => 'list'/
+
+  def destroy
+    @team=Team.find(params[:id])
+    @team.destroy
+    redirect_to :action => 'index'
   end
 
   def show_subjects

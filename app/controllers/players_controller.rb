@@ -4,9 +4,8 @@ class PlayersController < ApplicationController
   end
 
   def index
-      @player = Player.find(:all)
+    @players = Player.all
   end
-
   def create
     @player = Player.new player_params
 
@@ -18,38 +17,33 @@ class PlayersController < ApplicationController
   end
 
   def show
-      @player = Player.find(params[:id])
+    @player = Player.find(params[:id])
   end
 
   def edit
     @player = Player.find(params[:id])
-    @subjects = Subject.find(:all)
+    /@subjects = Subject.find(:all)/
   end
-
-  private
 
   def update
     @player = Player.find(params[:id])
-    if @player.update_attributes(params[:player])
-     redirect_to :action => 'show', :id => @player
-   else
-     @subjects = Subject.find(:all)
-     render :action => 'edit'
-   end
- end
+    @player.update(player_params)
+    redirect_to :action => 'show', :id => @player
+  end
 
-def delete
-  Player.find(params[:id]).destroy
-  /redirect_to :action => 'list'/
-end
+  def destroy
+    @player=Player.find(params[:id])
+    @player.destroy
+    redirect_to :action => 'index'
+  end
 
-def show_subjects
-      @subject = Subject.find(params[:id])
-   end
+  def show_subjects
+    @subject = Subject.find(params[:id])
+  end
 
- def player_params
-  params.require(:player)
-  .permit(:name)
-  .merge(user: current_user)
-end
+  def player_params
+    params.require(:player)
+    .permit(:name)
+    .permit(:position)
+  end
 end

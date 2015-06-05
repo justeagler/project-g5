@@ -1,0 +1,11 @@
+<h1><%= @player.name %></h1>
+<h3><%= @player.position %></h3>
+<li>
+<b> <%= link_to 'Next Player', {:action => 'show', :id => @player.id+1}%></b>
+<span>  |  </span>
+<b> <%= link_to 'Prev Player', {:action => 'show', :id => @player.id-1}%></b>
+<span>  |  </span>
+<b> <%= link_to 'Edit', {:action => 'edit', :id => @player.id} %></b>
+<span>  |  </span>
+<b> <%= link_to 'Destroy', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %></b>
+</li>

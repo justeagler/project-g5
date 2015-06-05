@@ -9269,3 +9269,1751 @@ Processing by TeamsController#new as HTML
   Rendered teams/new.html.erb within layouts/application (1.4ms)
   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "b0f5c55db2fda95dc628857a7fa876b12947bb6c"]]
 Completed 200 OK in 126ms (Views: 125.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-04 19:27:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "b0f5c55db2fda95dc628857a7fa876b12947bb6c"]]
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (162.7ms)
+Completed 200 OK in 622ms (Views: 594.6ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/sign_out" for 127.0.0.1 at 2015-06-04 19:28:02 +0100
+Processing by Clearance::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "b0f5c55db2fda95dc628857a7fa876b12947bb6c"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"], ["updated_at", "2015-06-04 18:28:02.950807"], ["id", 1]]
+  [1m[35m (6.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 22ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2015-06-04 19:28:02 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/_form.html.erb (67.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/new.html.erb within layouts/application (162.4ms)
+Completed 200 OK in 341ms (Views: 340.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-06-04 19:28:06 +0100
+Processing by Clearance::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"tiago@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "tiago@gmail.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 87ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-04 19:28:06 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 102ms (Views: 100.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-04 19:28:08 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (19.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 132ms (Views: 130.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-04 19:28:10 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 184ms (Views: 183.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-04 19:28:15 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 136ms (Views: 133.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teams/1/edit" for 127.0.0.1 at 2015-06-04 19:28:16 +0100
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/edit.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 110ms (Views: 109.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/teams/1" for 127.0.0.1 at 2015-06-04 19:28:25 +0100
+Processing by TeamsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "team"=>{"name"=>"Benficas"}, "commit"=>"Update Team", "id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "teams" SET "name" = ?, "updated_at" = ? WHERE "teams"."id" = ?  [["name", "Benficas"], ["updated_at", "2015-06-04 18:28:25.221688"], ["id", 1]]
+  [1m[36m (81.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 94ms (ActiveRecord: 82.1ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-04 19:28:25 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 116ms (Views: 114.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/1/edit" for 127.0.0.1 at 2015-06-04 19:28:28 +0100
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/edit.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 102ms (Views: 100.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/teams/1" for 127.0.0.1 at 2015-06-04 19:28:32 +0100
+Processing by TeamsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "team"=>{"name"=>"Benfica"}, "commit"=>"Update Team", "id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "teams" SET "name" = ?, "updated_at" = ? WHERE "teams"."id" = ?  [["name", "Benfica"], ["updated_at", "2015-06-04 18:28:32.589740"], ["id", 1]]
+  [1m[36m (35.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 41ms (ActiveRecord: 35.9ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-04 19:28:32 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 100ms (Views: 98.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-04 19:28:37 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 121ms (Views: 119.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2015-06-04 19:28:38 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered teams/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 135ms (Views: 133.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/4" for 127.0.0.1 at 2015-06-04 19:28:38 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered teams/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 124ms (Views: 122.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/5" for 127.0.0.1 at 2015-06-04 19:28:39 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered teams/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/6" for 127.0.0.1 at 2015-06-04 19:28:39 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered teams/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 110ms (Views: 108.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/7" for 127.0.0.1 at 2015-06-04 19:28:40 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered teams/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 118ms (Views: 116.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/8" for 127.0.0.1 at 2015-06-04 19:28:40 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered teams/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 107ms (Views: 106.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2015-06-04 19:28:47 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 9]]
+  Rendered teams/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 108ms (Views: 107.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/10" for 127.0.0.1 at 2015-06-04 19:28:58 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 10]]
+  Rendered teams/show.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 123ms (Views: 121.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-04 19:29:13 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 106ms (Views: 105.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-04 19:29:26 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 112ms (Views: 111.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-04 19:29:28 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 131ms (Views: 130.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-04 19:29:29 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+Completed 200 OK in 138ms (Views: 137.5ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/sign_out" for 127.0.0.1 at 2015-06-04 19:29:33 +0100
+Processing by Clearance::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "42ff75a88b0690549375da9da7e9ca0a329f3ab1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"], ["updated_at", "2015-06-04 18:29:33.943346"], ["id", 1]]
+  [1m[35m (40.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 48ms (ActiveRecord: 41.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2015-06-04 19:29:33 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/_form.html.erb (2.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 118ms (Views: 117.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-06-04 19:29:35 +0100
+Processing by Clearance::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"tiago@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "tiago@gmail.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 92ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-04 19:29:35 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 111ms (Views: 109.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-04 19:29:39 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 180ms (Views: 178.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-04 19:29:41 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.2ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 139ms (Views: 138.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teams/9" for 127.0.0.1 at 2015-06-04 19:29:44 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 9]]
+  Rendered teams/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 103ms (Views: 102.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-04 19:29:48 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 106ms (Views: 105.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/sign_out" for 127.0.0.1 at 2015-06-04 19:29:52 +0100
+Processing by Clearance::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "remember_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"], ["updated_at", "2015-06-04 18:29:52.233677"], ["id", 1]]
+  [1m[35m (5.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 12ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2015-06-04 19:29:52 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/_form.html.erb (2.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 120ms (Views: 119.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 12:18:53 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  Rendered pages/home.html.erb within layouts/application (229.1ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 2371ms (Views: 2313.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-05 12:19:10 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (155.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 659ms (Views: 574.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 12:19:19 +0100
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  Rendered pages/home.html.erb within layouts/application (5.6ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 366ms (Views: 363.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2015-06-05 12:19:22 +0100
+Processing by Clearance::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/_form.html.erb (14.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/clearance-1.8.0/app/views/sessions/new.html.erb within layouts/application (56.0ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "616cf545365002f10640fe224bbf17341edeb3d4"]]
+Completed 200 OK in 814ms (Views: 809.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-06-05 12:19:37 +0100
+Processing by Clearance::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"tiago@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (36.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "tiago@gmail.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 340ms (ActiveRecord: 36.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 12:19:37 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (98.9ms)
+Completed 200 OK in 538ms (Views: 534.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-05 12:21:27 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (7.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 447ms (Views: 421.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 12:21:28 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (13.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 462ms (Views: 458.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:21:30 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.8ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (9.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 379ms (Views: 368.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/teams/1/edit" for 127.0.0.1 at 2015-06-05 12:21:32 +0100
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/edit.html.erb within layouts/application (13.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 407ms (Views: 396.3ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/teams/1" for 127.0.0.1 at 2015-06-05 12:21:38 +0100
+Processing by TeamsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "team"=>{"name"=>"Benficas"}, "commit"=>"Update Team", "id"=>"1"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms)
+
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  app/controllers/teams_controller.rb:30:in `update'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (22.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (86.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (186.8ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:23:04 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (12.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 444ms (Views: 395.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 12:23:09 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (1.7ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (49.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 536ms (Views: 523.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:23:13 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 375ms (Views: 371.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:24:05 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (1.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (18.3ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 3.0ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :id=>1}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_38693680'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (35.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (102.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (126.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (228.1ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:55:40 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (1.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (46.3ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :data=>{:confirm=>"Are you sure?"}, :id=>1}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id, data: { confirm: 'Are you sure?' }} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966647338200'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (55.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (34.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (178.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (122.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (220.5ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:57:20 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (47.0ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :data=>{:confirm=>"Are you sure?"}, :id=>1}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', data: { confirm: 'Are you sure?' }, :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966645569700'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (267.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (32.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (389.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (102.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (7.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (243.3ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:58:08 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (19.8ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :id=>1}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id} , data: { confirm: 'Are you sure?' } %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_36804660'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (39.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (131.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (9.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (102.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (17.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (224.2ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:59:28 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (18.2ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 18.2ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :data=>{:confirm=>"Are you sure?"}, :id=>1}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', :action => 'delete', :id => @team.id , data: { confirm: 'Are you sure?' } %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966646260220'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (44.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (43.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (166.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (129.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (231.9ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 12:59:48 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (5.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (23.9ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 5.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :id=>1}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966648775800'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (32.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (46.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (142.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (99.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (253.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 13:07:07 +0100
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (17.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+  [1m[35mTeam Load (1.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 645ms (Views: 622.5ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 13:07:11 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.6ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 385ms (Views: 382.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:07:16 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :id=>2}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966635432740'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (35.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (53.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (162.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (86.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (8.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (195.0ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:07:17 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (27.3ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :id=>2}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966648775800'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (51.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (147.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (4.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (15.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (127.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (3.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (251.4ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:08:00 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.5ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 412ms (Views: 404.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2/edit" for 127.0.0.1 at 2015-06-05 13:08:03 +0100
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/edit.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 418ms (Views: 410.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2/delete" for 127.0.0.1 at 2015-06-05 13:08:14 +0100
+
+ActionController::RoutingError (No route matches [GET] "/teams/2/delete"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (43.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (195.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (2.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (16.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (111.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (207.0ms)
+
+
+Started GET "/teams/delete/2" for 127.0.0.1 at 2015-06-05 13:09:51 +0100
+
+ActionController::RoutingError (No route matches [GET] "/teams/delete/2"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (20.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (208.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (4.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (91.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (5.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (183.9ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2015-06-05 13:12:06 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (0.8ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (12.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 428ms (Views: 425.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:12:09 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (69.3ms)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined local variable or method `article' for #<#<Class:0x000000049d3038>:0x007f44c1a11cf8>):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', article_path(article), {:action => 'destroy', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966641502180'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (40.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (114.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (2.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (70.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (138.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:12:10 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (70.3ms)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined local variable or method `article' for #<#<Class:0x000000049d3038>:0x007f44c26c95b8>):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', article_path(article), {:action => 'destroy', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966648197580'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (39.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (16.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (121.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (3.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (2.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (87.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (166.3ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:12:41 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.5ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (124.9ms)
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined local variable or method `team' for #<#<Class:0x000000049d3038>:0x00000002530dc0>):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', team_path(team), {:action => 'destroy', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_19344380'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (36.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (125.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (132.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (258.0ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:13:16 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (4.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 475ms (Views: 469.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:13:20 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (5.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 422ms (Views: 418.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:13:27 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 328ms (Views: 324.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:13:32 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 423ms (Views: 419.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2015-06-05 13:13:35 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered teams/show.html.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 409ms (Views: 405.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:13:37 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (1.1ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 407ms (Views: 388.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:13:39 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 366ms (Views: 362.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:34 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (6.5ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 385ms (Views: 356.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:38 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (4.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 504ms (Views: 491.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:40 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 337ms (Views: 328.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:42 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 360ms (Views: 355.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:47 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 321ms (Views: 317.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:47 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (15.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 551ms (Views: 548.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:48 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 458ms (Views: 443.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:48 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.9ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 565ms (Views: 545.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:49 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.7ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (5.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 591ms (Views: 585.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:49 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (22.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 456ms (Views: 450.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:15:50 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 516ms (Views: 498.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 13:15:51 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 363ms (Views: 349.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/teams/1/edit" for 127.0.0.1 at 2015-06-05 13:15:55 +0100
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.7ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered teams/edit.html.erb within layouts/application (11.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 408ms (Views: 403.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 13:17:58 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (1.9ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (29.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 345ms (Views: 331.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:18:03 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.9ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 402ms (Views: 396.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:18:05 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 406ms (Views: 401.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:19:06 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (15.5ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"teams", :id=>2}):
+     6: <span>  |  </span>
+     7: <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+     8: <span>  |  </span>
+     9: <b> <%= link_to 'Delete', {:action => 'delete', :id => @team.id} %></b>
+    10: </li>
+  app/views/teams/show.html.erb:9:in `_app_views_teams_show_html_erb__1134776451430529724_69966647263080'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (36.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (24.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (127.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (7.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (142.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (241.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:04 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.5ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (14.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 452ms (Views: 447.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:08 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 466ms (Views: 462.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:13 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (9.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 379ms (Views: 375.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:15 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 420ms (Views: 417.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:15 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 415ms (Views: 411.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 13:22:22 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 431ms (Views: 427.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2015-06-05 13:22:24 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered teams/show.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 485ms (Views: 481.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:26 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (14.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 354ms (Views: 351.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2015-06-05 13:22:27 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered teams/show.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 453ms (Views: 447.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:29 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (1.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 453ms (Views: 432.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:30 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 385ms (Views: 381.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:22:33 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 332ms (Views: 328.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:13 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (7.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 427ms (Views: 423.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:16 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (11.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 489ms (Views: 484.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:20 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 535ms (Views: 531.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:21 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 463ms (Views: 459.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:21 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (17.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (15.2ms)
+  [1m[36mUser Load (4.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 544ms (Views: 517.9ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:22 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 554ms (Views: 543.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:23 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 454ms (Views: 437.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:23 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 450ms (Views: 446.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2/edit" for 127.0.0.1 at 2015-06-05 13:23:27 +0100
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/edit.html.erb within layouts/application (13.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 471ms (Views: 467.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 13:23:30 +0100
+Processing by TeamsController#index as HTML
+  [1m[35mTeam Load (1.3ms)[0m  SELECT "teams".* FROM "teams"
+  Rendered teams/index.html.erb within layouts/application (36.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 424ms (Views: 420.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:33 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 458ms (Views: 454.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:23:41 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (9.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 415ms (Views: 412.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:25:02 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTeam Load (0.4ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/home/tiago/project-g5/app/views/teams/show.html.erb:9: syntax error, unexpected ':', expecting ')'
+...ete',team_path(@team), :method: :delete,
+...                               ^):
+  app/views/teams/show.html.erb:9: syntax error, unexpected ':', expecting ')'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (30.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (101.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (4.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (81.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (168.4ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2015-06-05 13:26:30 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered teams/show.html.erb within layouts/application (7.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 414ms (Views: 410.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/teams/2" for 127.0.0.1 at 2015-06-05 13:26:35 +0100
+Processing by TeamsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mTeam Load (5.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.8ms)[0m  begin transaction
+  [1m[36mSQL (2.6ms)[0m  [1mDELETE FROM "teams" WHERE "teams"."id" = ?[0m  [["id", 2]]
+  [1m[35m (24.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 50ms (ActiveRecord: 32.9ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2015-06-05 13:26:35 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.9ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (9.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 405ms (Views: 402.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/teams/4" for 127.0.0.1 at 2015-06-05 13:27:57 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered teams/show.html.erb within layouts/application (5.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 508ms (Views: 504.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/teams/4?data%5Bconfirm%5D=Are+you+sure%3F&method=delete" for 127.0.0.1 at 2015-06-05 13:28:00 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"data"=>{"confirm"=>"Are you sure?"}, "method"=>"delete", "id"=>"4"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered teams/show.html.erb within layouts/application (7.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 423ms (Views: 411.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/4?data%5Bconfirm%5D=Are+you+sure%3F&method=delete" for 127.0.0.1 at 2015-06-05 13:28:02 +0100
+Processing by TeamsController#show as HTML
+  Parameters: {"data"=>{"confirm"=>"Are you sure?"}, "method"=>"delete", "id"=>"4"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered teams/show.html.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 340ms (Views: 337.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 13:28:06 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (8.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 329ms (Views: 327.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 13:55:34 +0100
+
+ActionController::RoutingError (No route matches [GET] "/players"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.1) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.1) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.1) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.1) lib/rack/lock.rb:17:in `call'
+  rack (1.6.1) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.1) lib/rack/handler/webrick.rb:89:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/tiago/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (17.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (152.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (119.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (2.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (6.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (250.5ms)
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 13:56:13 +0100
+Processing by PlayersController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+LoadError (Unable to autoload constant Player, expected /home/tiago/project-g5/app/models/player.rb to define it):
+  app/controllers/players_controller.rb:7:in `index'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (22.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (17.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (103.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (8.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (90.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (7.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (158.4ms)
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 13:56:51 +0100
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (5.1ms)[0m  [1mSELECT "players".* FROM "players"[0m
+SQLite3::SQLException: no such table: players: SELECT "players".* FROM "players"
+  Rendered players/index.html.erb within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 5.1ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: players: SELECT "players".* FROM "players"):
+    1: <% if @players.blank? %>
+    2: <p>There are not any players currently in the system.</p>
+    3: <% else %>
+    4: <div class="panel panel-default">
+  app/views/players/index.html.erb:1:in `_app_views_players_index_html_erb__1719971767241524920_69966650473260'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (41.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (122.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (80.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (180.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 13:59:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlayersController#index as HTML
+  [1m[35mPlayer Load (4.6ms)[0m  SELECT "players".* FROM "players"
+SQLite3::SQLException: no such table: players: SELECT "players".* FROM "players"
+  Rendered players/index.html.erb within layouts/application (36.4ms)
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 4.6ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: players: SELECT "players".* FROM "players"):
+    1: <% if @players.blank? %>
+    2: <p>There are not any players currently in the system.</p>
+    3: <% else %>
+    4: <div class="panel panel-default">
+  app/views/players/index.html.erb:1:in `_app_views_players_index_html_erb___3158688470656613775_40555140'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (101.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (66.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (205.4ms)
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 13:59:57 +0100
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (3.6ms)[0m  [1mSELECT "players".* FROM "players"[0m
+SQLite3::SQLException: no such table: players: SELECT "players".* FROM "players"
+  Rendered players/index.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.6ms)
+
+ActionView::Template::Error (SQLite3::SQLException: no such table: players: SELECT "players".* FROM "players"):
+    1: <% if @players.blank? %>
+    2: <p>There are not any players currently in the system.</p>
+    3: <% else %>
+    4: <div class="panel panel-default">
+  app/views/players/index.html.erb:1:in `_app_views_players_index_html_erb___3158688470656613775_40555140'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (89.9ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (54.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (108.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 14:03:19 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (356.6ms)
+Completed 200 OK in 1717ms (Views: 1709.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 14:03:30 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (20.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 502ms (Views: 497.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/" for 127.0.0.1 at 2015-06-05 14:03:32 +0100
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (10.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 376ms (Views: 373.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2015-06-05 14:03:33 +0100
+Processing by TeamsController#new as HTML
+  Rendered teams/new.html.erb within layouts/application (161.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "75d261483fdccb7c4e34881269b377a3da6c9be6"]]
+Completed 200 OK in 498ms (Views: 495.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 14:07:39 +0100
+Processing by PlayersController#new as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms)
+
+ActiveRecord::StatementInvalid (Could not find table 'players'):
+  app/controllers/players_controller.rb:3:in `new'
+
+
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (21.8ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.2ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (69.4ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/tiago/.rvm/gems/ruby-2.2.1/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (128.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+[0m
+  [1m[35m (0.7ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_remember_token' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
