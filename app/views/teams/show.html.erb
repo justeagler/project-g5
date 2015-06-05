@@ -1,8 +1,6 @@
 <h1><%= @team.name %></h1>
 <li>
-<b> <%= link_to 'Next Team', {:action => 'show', :id => @team.id+1}%></b>
-<span>  |  </span>
-<b> <%= link_to 'Prev Team', {:action => 'show', :id => @team.id-1}%></b>
+<b> <%= link_to 'Back', {:action => 'index'}%></b>
 <span>  |  </span>
 <b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
 <span>  |  </span>

@@ -4,8 +4,4 @@ class Team < ActiveRecord::Base
   belongs_to :user
 
   has_many :players
-
-  def players
-    players.all
-  end
 end
