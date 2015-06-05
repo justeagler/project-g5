@@ -11749,3 +11749,132 @@ Unpermitted parameter: name
   Rendered players/new.html.erb within layouts/application (3.4ms)
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
 Completed 200 OK in 149ms (Views: 135.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 20:05:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlayersController#new as HTML
+  Rendered players/new.html.erb within layouts/application (19.6ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 355ms (Views: 334.4ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 20:06:16 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"tiago", "position"=>"med"}, "commit"=>"Create Player"}
+Unpermitted parameter: position
+Unpermitted parameter: name
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  Rendered players/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 176ms (Views: 158.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/players/new" for 127.0.0.1 at 2015-06-05 20:13:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PlayersController#new as HTML
+  Rendered players/new.html.erb within layouts/application (19.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 395ms (Views: 375.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/players" for 127.0.0.1 at 2015-06-05 20:13:40 +0100
+Processing by PlayersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"Tiago", "position"=>"Med"}, "commit"=>"Create Player"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "players" ("name", "position", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Tiago"], ["position", "Med"], ["created_at", "2015-06-05 19:13:40.288237"], ["updated_at", "2015-06-05 19:13:40.288237"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-05 20:13:40 +0100
+Processing by PagesController#home as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "teams".* FROM "teams" WHERE "teams"."user_id" = ?  ORDER BY "teams"."id" ASC LIMIT 1  [["user_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (49.7ms)
+Completed 200 OK in 206ms (Views: 202.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2015-06-05 20:13:48 +0100
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.6ms)[0m  [1mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered players/show.html.erb within layouts/application (2.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 140ms (Views: 135.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/players/" for 127.0.0.1 at 2015-06-05 20:13:56 +0100
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.3ms)[0m  [1mSELECT "players".* FROM "players"[0m
+  Rendered players/index.html.erb within layouts/application (3.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 126ms (Views: 124.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2015-06-05 20:14:02 +0100
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered players/show.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 138ms (Views: 136.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/players/1/edit" for 127.0.0.1 at 2015-06-05 20:14:05 +0100
+Processing by PlayersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered players/edit.html.erb within layouts/application (5.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 161ms (Views: 159.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/players/1" for 127.0.0.1 at 2015-06-05 20:14:08 +0100
+Processing by PlayersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "player"=>{"name"=>"Tiagos", "position"=>"Meds"}, "commit"=>"Update Player", "id"=>"1"}
+  [1m[36mPlayer Load (0.5ms)[0m  [1mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "players" SET "name" = ?, "position" = ?, "updated_at" = ? WHERE "players"."id" = ?[0m  [["name", "Tiagos"], ["position", "Meds"], ["updated_at", "2015-06-05 19:14:08.951071"], ["id", 1]]
+  [1m[35m (15.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/players/1
+Completed 302 Found in 32ms (ActiveRecord: 17.0ms)
+
+
+Started GET "/players/1" for 127.0.0.1 at 2015-06-05 20:14:08 +0100
+Processing by PlayersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered players/show.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 129ms (Views: 127.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/players/1" for 127.0.0.1 at 2015-06-05 20:14:13 +0100
+Processing by PlayersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT  "players".* FROM "players" WHERE "players"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mDELETE FROM "players" WHERE "players"."id" = ?[0m  [["id", 1]]
+  [1m[35m (11.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/players
+Completed 302 Found in 18ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2015-06-05 20:14:13 +0100
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT "players".* FROM "players"[0m
+  Rendered players/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 117ms (Views: 116.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/players" for 127.0.0.1 at 2015-06-05 20:14:19 +0100
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1mSELECT "players".* FROM "players"[0m
+  Rendered players/index.html.erb within layouts/application (3.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "2bc6bf0f706f9059b5243ac2c32d4126dc1c7a99"]]
+Completed 200 OK in 121ms (Views: 119.8ms | ActiveRecord: 0.3ms)

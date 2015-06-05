@@ -22,7 +22,6 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
-    /@subjects = Subject.find(:all)/
   end
 
   def update
@@ -37,9 +36,7 @@ class TeamsController < ApplicationController
     redirect_to :action => 'index'
   end
 
-  def show_subjects
-    @subject = Subject.find(params[:id])
-  end
+  private
 
   def team_params
     params.require(:team)

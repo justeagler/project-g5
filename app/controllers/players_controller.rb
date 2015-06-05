@@ -7,9 +7,9 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
   def create
-    @player = Player.create player_params
+    @player = Player.new player_params
 
-    if @player.persisted?
+    if @player.save
       redirect_to root_path
     else
       render :new
@@ -22,7 +22,6 @@ class PlayersController < ApplicationController
 
   def edit
     @player = Player.find(params[:id])
-    /@subjects = Subject.find(:all)/
   end
 
   def update
@@ -41,7 +40,6 @@ class PlayersController < ApplicationController
 
   def player_params
     params.require(:player)
-    .permit(:name)
-    .permit(:position)
+    .permit(:name,:position)
   end
 end
