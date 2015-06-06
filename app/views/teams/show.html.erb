@@ -1,8 +1,52 @@
-<h1><%= @team.name %></h1>
+<div class="team_name">
+	<h1><%= @team.name %></h1>
+</div>
+<div class="team_players">
+	<% if @team.players.blank? %>
+	<p>There are not any players currently in the system.</p>
+	<% else %>
+	<div class="panel panel-default">
+
+		<!-- Table -->
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Position</th>
+					<th>Number</th>
+					<th>Birthday</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @team.players.each do |c| %>
+				<tr>
+					<th>
+						<%= link_to c.name, player_path(c), method: :get -%>
+					</th>
+					<th>
+						<%= link_to c.position, player_path(c), method: :get -%>
+					</th>
+					<th>
+						<%= link_to c.number, player_path(c), method: :get -%>
+					</th>
+					<th>
+						<%= link_to c.birthday, player_path(c), method: :get -%>
+					</th>
+				</tr>
+				<% end %>
+				<tr>
+					<th><%= link_to 'Add Player', new_player_path -%></th><th></th><th></th><th></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<% end %>
+</div>
 <li>
-<b> <%= link_to 'Back', {:action => 'index'}%></b>
-<span>  |  </span>
-<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
-<span>  |  </span>
-<b> <%= link_to 'Destroy', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' } %></b>
+	<b> <%= link_to 'Back', {:action => 'index'}%></b>
+	<span>  |  </span>
+	<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+	<span>  |  </span>
+	<b> <%= link_to 'Destroy', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' } %></b>
 </li>

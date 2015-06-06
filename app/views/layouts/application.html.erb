@@ -26,9 +26,12 @@
   <div class="banner">
     <div class="container">
       <div class="menu">
-        <a href="" class="btn_menu">Home</a>
         <% if signed_in? %>
-          <%= link_to 'MyTeam', new_team_path , :class => "btn_menu"%>
+          <% if current_user.team %>
+            <%= link_to 'MyTeam', team_path(current_user.team) , :class => "btn_menu"%>
+          <% else %>
+            <%= link_to 'MyTeam', new_team_path , :class => "btn_menu"%>
+          <% end %>
         <%else%>
           <%= link_to 'MyTeam', sign_in_path , :class => "btn_menu"%>
         <%end%>

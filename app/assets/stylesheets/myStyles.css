@@ -132,3 +132,28 @@
 .panel-heading{
 	text-align: center;
 }
+.team_name{
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 10px;
+	width: 70%;
+	height: 100%;
+	color: blue;
+	border: 1px solid #564A45;
+	border-radius: 5px;
+	background-color: #E7E7E7;
+}
+.team_players{
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 10px;
+	width: 70%;
+	height: 100%;
+	color: black;
+	background-image: url(https://www.dreamteamfc.com/sfdt/images/generic/myTeam-pitch.png);
+}
+.panel-default{
+	background-color: transparent;
+}

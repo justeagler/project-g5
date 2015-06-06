@@ -40,7 +40,7 @@ class PlayersController < ApplicationController
 
   def player_params
     params.require(:player)
-    .permit(:name,:position)
+    .permit(:name,:position,:number,:birthday)
     .merge(team_id: current_user.team.id)
   end
 end

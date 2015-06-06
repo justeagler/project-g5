@@ -13,6 +13,8 @@
 		<tr>
 			<th>Name</th>
 			<th>Position</th>
+			<th>Number</th>
+			<th>Birthday</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +25,12 @@
 			</th>
 			<th>
 				<%= link_to c.position, {:action => 'show', :id => c.id} -%>
+			</th>
+			<th>
+				<%= link_to c.number, {:action => 'show', :id => c.id} -%>
+			</th>
+			<th>
+				<%= link_to c.birthday, {:action => 'show', :id => c.id} -%>
 			</th>
 		</tr>
 			<% end %>

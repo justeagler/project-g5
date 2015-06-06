@@ -19,7 +19,7 @@
 		<% @teams.each do |c| %>
 		<tr>
 		<th>
-			<%= c.id -%>
+			<%= link_to c.id, {:action => 'show', :id => c.id} -%>
 		</th>
 			<th>
 				<%= link_to c.name, {:action => 'show', :id => c.id} -%>
