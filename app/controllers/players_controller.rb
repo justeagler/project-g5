@@ -10,7 +10,8 @@ class PlayersController < ApplicationController
     @player = Player.new player_params
     
     if @player.save
-      redirect_to root_path
+      
+      redirect_to team_path(current_user.team.id)
     else
       render :new
     end

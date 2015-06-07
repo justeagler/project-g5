@@ -2,9 +2,6 @@
 	<h1><%= @team.name %></h1>
 </div>
 <div class="team_players">
-	<% if @team.players.blank? %>
-	<p>There are not any players currently in the system.</p>
-	<% else %>
 	<div class="panel panel-default">
 
 		<!-- Table -->
@@ -34,19 +31,80 @@
 					</th>
 				</tr>
 				<% end %>
+				<% if signed_in? && current_user.team.id == @team.id %>
+					<tr>
+						<th><%= link_to 'Add Player', new_player_path -%></th><th></th><th></th><th></th>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<div class="team_comments">
+	<div class="panel panel-default">
+
+		<!-- Table -->
+		<table class="table">
+			<thead>
 				<tr>
-					<th><%= link_to 'Add Player', new_player_path -%></th><th></th><th></th><th></th>
+					<th><h1>Comments</h1></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @team.comments.each do |c| %>
+				<tr>
+					<th>
+					<p>
+						<span class="username"><%=c.username-%></span>
+						<span class="title"><%= c.title-%></span>
+					</p>
+					<p class="body">
+						<%= c.body -%>
+					</p>
+					</th>
+				</tr>
+				<% end %>
+				<tr>
+					<th>
+						<h4>Add a comment:</h2>
+<%= form_for([@team, @team.comments.build]) do |f| %>
+  <p>
+    <%= f.label :username %><br>
+    <% if signed_in? %>
+    		<%= f.text_field :username , :value => current_user.email%>
+    <% else %>
+    		<%= f.text_field :username , :value => "Anonymous"%>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_area :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+					</th>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
-	<% end %>
 </div>
+
 <li>
 	<b> <%= link_to 'Back', {:action => 'index'}%></b>
-	<span>  |  </span>
-	<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
-	<span>  |  </span>
-	<b> <%= link_to 'Destroy', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' } %></b>
+	
+	<% if signed_in? && current_user.team.id == @team.id %>
+		<span>  |  </span>
+		<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
+		<span>  |  </span>
+		<b><%= link_to 'Destroy', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' } %></b>
+	<% end %>
+	
 </li>

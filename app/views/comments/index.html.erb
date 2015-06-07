@@ -1,0 +1,37 @@
+<% if @comment.blank? %>
+<p>There are not any comment currently in the system.</p>
+<% else %>
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">
+		<h2>Players</h2>
+	</div>
+
+	<!-- Table -->
+	<table class="table">
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Title</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @comment.each do |c| %>
+		<tr>
+			<th>
+				<%= link_to c.username, {:action => 'show', :id => c.id} -%>
+			</th>
+			<th>
+				<%= link_to c.title, {:action => 'show', :id => c.id} -%>
+			</th>
+			<th>
+				<%= link_to c.body, {:action => 'show', :id => c.id} -%>
+			</th>
+		</tr>
+			<% end %>
+		</tbody>
+		</table>
+	</div>
+
+	<% end %>

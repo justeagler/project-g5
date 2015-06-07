@@ -158,6 +158,19 @@
 	background-color: transparent;
 }
 
+.username{
+	color: blue;
+	font-size: 12px;
+}
+.title{
+	color: black;
+	font-size: 14px;
+}
+.body{
+	color: black;
+	font-size: 10px;
+}
+
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
     font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
     font-size: 1em;

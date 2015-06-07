@@ -1,0 +1,10 @@
+<h1><%= @comment.username %></h1>
+<h3><%= @comment.title %></h3>
+<h3><%= @comment.body %></h3>
+<li>
+<b> <%= link_to 'Back', {:action => 'index'}%></b>
+<span>  |  </span>
+<b> <%= link_to 'Edit', {:action => 'edit', :id => @comment.id} %></b>
+<span>  |  </span>
+<b> <%= link_to 'Destroy', comment_path(@comment), method: :delete, data: { confirm: 'Are you sure?' } %></b>
+</li>

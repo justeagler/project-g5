@@ -1,0 +1,25 @@
+
+
+
+<div class="row">
+	<h1>Create Comment</h1>
+</div>
+<% if @comment.errors.full_messages!=[] %>
+	<div class="row">
+		<%= @comment.errors.full_messages %>
+	</div>
+<% end %>
+<div class="body_view">
+
+	<%= form_for @comment do |form| %>
+		<div class="row">
+			<%= form.label :username %>
+			<%= form.text_field :username %>
+			<%= form.label :title %>
+			<%= form.text_field :title %>
+			<%= form.label :body %>
+			<%= form.text_field :body %>
+			<%= form.submit class: 'button' %>
+		</div>
+	<% end %>
+</div>
