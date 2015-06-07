@@ -11,15 +11,11 @@ class TeamsController < ApplicationController
     @team = Team.new team_params
 
     #teamExist = Team.find_by_name('rui')
-    @teamExist = Team.find_by_name(params[:name])
-    if teamExist?
-      if @team.save
-        redirect_to root_path 
-      end    
+    if @team.save
+      redirect_to root_path
     else
       render :new
-    end
-    
+    end      
 
   end
 
