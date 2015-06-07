@@ -157,3 +157,9 @@
 .panel-default{
 	background-color: transparent;
 }
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1em;
+    color: gray;
+}
