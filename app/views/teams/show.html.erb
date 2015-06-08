@@ -1,110 +1,126 @@
-<div class="team_name">
-	<h1><%= @team.name %></h1>
-</div>
-<div class="team_players">
-	<div class="panel panel-default">
 
-		<!-- Table -->
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Position</th>
-					<th>Number</th>
-					<th>Birthday</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @team.players.each do |c| %>
-				<tr>
-					<th>
-						<%= link_to c.name, player_path(c), method: :get -%>
-					</th>
-					<th>
-						<%= link_to c.position, player_path(c), method: :get -%>
-					</th>
-					<th>
-						<%= link_to c.number, player_path(c), method: :get -%>
-					</th>
-					<th>
-						<%= link_to c.birthday, player_path(c), method: :get -%>
-					</th>
-				</tr>
-				<% end %>
-				<% if signed_in? && current_user.team.id == @team.id %>
-					<tr>
-						<th><%= link_to 'Add Player', new_player_path -%></th><th></th><th></th><th></th>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+<div class="row">
+	<div class="team_name">
+		<h2><small>Team Management: </small> <%=@team.name%></h2>
 	</div>
-</div>
-
-
-<div class="team_comments">
-	<div class="panel panel-default">
-
-		<!-- Table -->
-		<table class="table">
-			<thead>
-				<tr>
-					<th><h1>Comments</h1></th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @team.comments.each do |c| %>
-				<tr>
-					<th>
-					<p>
-						<span class="username"><%=c.username-%></span>
-						<span class="title"><%= c.title-%></span>
-					</p>
-					<p class="body">
-						<%= c.body -%>
-					</p>
-					</th>
-				</tr>
-				<% end %>
-				<tr>
-					<th>
-						<h4>Add a comment:</h2>
-<%= form_for([@team, @team.comments.build]) do |f| %>
-  <p>
-    <%= f.label :username %><br>
-    <% if signed_in? %>
-    		<%= f.text_field :username , :value => current_user.email%>
-    <% else %>
-    		<%= f.text_field :username , :value => "Anonymous"%>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-					</th>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
-
-<li>
-	<b> <%= link_to 'Back', {:action => 'index'}%></b>
+	<div class="team_menu_btn">
+		<%= link_to 'Back', {:action => 'index'}, class: 'btn btn-default'%>
 	
-	<% if signed_in? && current_user.team.id == @team.id %>
-		<span>  |  </span>
-		<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id} %></b>
-		<span>  |  </span>
-		<b><%= link_to 'Destroy', team_path(@team), method: :delete, data: { confirm: 'Are you sure?' } %></b>
+		<% if signed_in? && current_user.team.id == @team.id %>
+		<b> <%= link_to 'Edit', {:action => 'edit', :id => @team.id}, class: 'btn btn-default' %></b>
+		<button class="btn btn-default" data-toggle="modal" data-target="#myModal"> Destroy</button>
 	<% end %>
-	
-</li>
+	</div>
+</div>
+<div class="team_body">
+	<div class="team_players">
+		<div class="panel panel-default">
+
+			<!-- Table -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Number</th>
+						<th>Birthday</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @team.players.each do |c| %>
+					<tr>
+						<th>
+							<%= link_to c.name, player_path(c), method: :get -%>
+						</th>
+						<th>
+							<%= link_to c.position, player_path(c), method: :get -%>
+						</th>
+						<th>
+							<%= link_to c.number, player_path(c), method: :get -%>
+						</th>
+						<th>
+							<%= link_to c.birthday, player_path(c), method: :get -%>
+						</th>
+					</tr>
+					<% end %>
+					<% if signed_in? && current_user.team.id == @team.id %>
+						<tr>
+							<th><%= link_to 'Add Player', new_player_path, class: 'btn btn-info' -%></th><th></th><th></th><th></th>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+		
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                <h4 class="modal-title" id="myModalLabel">Remove team <%=@team.name%></h4>
+	            </div>
+	            <div class="modal-body">
+	                <div class="form-horizontal">                  
+	                    <h3 class="modal-title">Are you sure?</h3>   
+	                </div>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-primary" ng-click="cancelar()" data-dismiss="modal">No</button>
+	                <a class="btn btn-danger" rel="nofollow" data-method="delete" href="/teams/<%=@team.id%>">Yes</a>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="detailBox">
+	    <div class="titleBox">
+	      <label>Comment Box</label>
+	        <button type="button" class="close" aria-hidden="true">&times;</button>
+	    </div>
+	    <div class="commentBox">
+	        
+	        <p class="taskDescription">Comments of your team...</p>
+	    </div>
+	    
+	    <div class="actionBox">
+	    	<% @team.comments.each do |c| %>
+	    
+	        <ul class="commentList">
+	            <li>
+	                <div class="commenterImage">
+	                  <img src="http://www.trebledesign.com/aacmaint/wp-content/uploads/2013/03/NO-IMAGE-AVAILABLE-300x300.jpg" />
+	                </div>
+
+	                <div class="commentText">
+	                    <p class=""><%= c.body -%></p> <span class="date sub-text"><%=c.username-%></span>
+
+	                </div>
+	            </li>
+	        </ul>
+	    <% end %>
+
+
+	        <%= form_for([@team, @team.comments.build]) do |f| %>
+	            <div class="form-group">
+	            	<%= f.label :username %><br>
+					    <% if signed_in? %>
+					    		<%= f.text_field :username , class: 'form-control',:value => current_user.email%>
+					    <% else %>
+					    		<%= f.text_field :username , :value => "Anonymous"%>
+			    	<% end %>
+	             	<%= f.text_area :body, class: 'form-control', placeholder: 'Your comments' %>
+	    		 	<textarea name="comment[title]" id="comment_title" hidden></textarea>
+	            </div>
+	            <div class="form-group">
+	            	<%= f.submit class: 'btn btn-default'%>
+	            </div>
+	        <% end %>
+	     
+	    </div>
+	    
+	</div>
+</div>
+

@@ -1,11 +1,40 @@
-<h1><%= @player.name %></h1>
-<h3><%= @player.position %></h3>
-<h3><%= @player.number %></h3>
-<h3><%= @player.birthday %></h3>
-<li>
-<b> <%= link_to 'Back', {:action => 'index'}%></b>
-<span>  |  </span>
-<b> <%= link_to 'Edit', {:action => 'edit', :id => @player.id} %></b>
-<span>  |  </span>
-<b> <%= link_to 'Destroy', player_path(@player), method: :delete, data: { confirm: 'Are you sure?' } %></b>
-</li>
+<div class="page-header">
+<h2>Name: <small><%= @player.name %></small></h2>
+</div>
+<div class="page-header">
+<h2>Position: <small><%= @player.position %></small></h2>
+</div>
+<div class="page-header">
+<h2>Number: <small><%= @player.number %></small></h2>
+</div>
+<div class="page-header">
+<h2>Birthday: <small><%= @player.birthday %></small></h2>
+</div>
+
+
+<b> <%= link_to 'Back', {:action => 'index'}, class: "btn btn-default"%>
+<% if signed_in? %>
+    <b> <%= link_to 'Edit', {:action => 'edit', :id => @player.id}, class: "btn btn-default" %></b>
+
+    <button class="btn btn-default" data-toggle="modal" data-target="#myModal"> Destroy</button>
+<% end -%>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Remove player <%=@player.name%></h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">                  
+                    <h3 class="modal-title">Are you sure?</h3>   
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="cancelar()" data-dismiss="modal">No</button>
+                <a class="btn btn-danger" rel="nofollow" data-method="delete" href="/players/<%=@player.id%>">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>

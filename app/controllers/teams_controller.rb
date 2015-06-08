@@ -29,8 +29,12 @@ class TeamsController < ApplicationController
 
   def update
     @team = Team.find(params[:id])
-    @team.update(team_params)
-    redirect_to :action => 'show', :id => @team
+    
+    if @team.update(team_params)
+      redirect_to :action => 'show', :id => @team
+    else
+      render :edit
+    end
   end
 
   def destroy
