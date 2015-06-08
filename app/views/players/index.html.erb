@@ -1,41 +1,42 @@
 <% if @players.blank? %>
 <p>There are not any players currently in the system.</p>
 <% else %>
-<div class="panel panel-default">
-	<!-- Default panel contents -->
-	<div class="panel-heading">
-		<h2>Players</h2>
+	<div class="page-header">
+		<h2>Players <small>List</small></h2>
 	</div>
 
 	<!-- Table -->
 	<table class="table">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Position</th>
-			<th>Number</th>
-			<th>Birthday</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @players.each do |c| %>
-		<tr>
-			<th>
-				<%= link_to c.name, {:action => 'show', :id => c.id} -%>
-			</th>
-			<th>
-				<%= link_to c.position, {:action => 'show', :id => c.id} -%>
-			</th>
-			<th>
-				<%= link_to c.number, {:action => 'show', :id => c.id} -%>
-			</th>
-			<th>
-				<%= link_to c.birthday, {:action => 'show', :id => c.id} -%>
-			</th>
-		</tr>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Position</th>
+				<th>Number</th>
+				<th>Birthday</th>
+				<th>Team Number</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @players.each do |c| %>
+			<tr>
+				<th>
+					<%= link_to c.name, {:action => 'show', :id => c.id} -%>
+				</th>
+				<th>
+					<%= link_to c.position, {:action => 'show', :id => c.id} -%>
+				</th>
+				<th>
+					<%= link_to c.number, {:action => 'show', :id => c.id} -%>
+				</th>
+				<th>
+					<%= link_to c.birthday, {:action => 'show', :id => c.id} -%>
+				</th>
+				<th>
+					<%= link_to c.team_id, team_path(c.team_id), method: :get -%>
+				</th>
+			</tr>
 			<% end %>
 		</tbody>
-		</table>
-	</div>
+	</table>
 
-	<% end %>
+<% end %>
